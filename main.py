@@ -2,7 +2,7 @@
 import pygame
 import random
 import time
-import os     #  --change to fixed directory
+import os
 
 pygame.init()
 
@@ -16,16 +16,16 @@ size = (900, 900)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("FUN SNAKE")
 
-
-choice1 = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\choice.png')
-choice2 = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\choice.png')
-b1 = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\button1.png')
-b2 = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\button2.png')
-b3 = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\button3.png')
-fixedwalls = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\button_Fixed_Walls.png')
-transwalls = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\button_go-through-walls.png')
-play = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\button_play.png')
-choiceplay = pygame.image.load(r'D:\Visual Studio repos\PySnake-master\sprites\choiceplay.png')
+dirname = os.path.dirname(__file__)
+choice1 = pygame.image.load( os.path.join(dirname, 'sprites\choice.png' ))
+choice2 = pygame.image.load( os.path.join(dirname, 'sprites\choice.png'))
+b1 =pygame.image.load( os.path.join(dirname, 'sprites/button1.png'))
+b2 =pygame.image.load( os.path.join(dirname, 'sprites/button2.png'))
+b3 =pygame.image.load( os.path.join(dirname, 'sprites/button3.png'))
+fixedwalls = pygame.image.load( os.path.join(dirname, 'sprites/button_Fixed_Walls.png'))
+transwalls = pygame.image.load( os.path.join(dirname, 'sprites/button_go-through-walls.png'))
+play = pygame.image.load( os.path.join(dirname, 'sprites/button_play.png'))
+choiceplay = pygame.image.load( os.path.join(dirname, 'sprites\choiceplay.png'))
 
 carryOn = True
 
@@ -234,9 +234,6 @@ def out_of_bounds():  # EndGame
 
 
 
-
-#  def pausegame()
-
 game_state= True #   {True - for running, False - for pause
 pause_time = 0
 while carryOn:
@@ -269,10 +266,11 @@ while carryOn:
         #TODO Add powerup
         #TODO Add pause game
         #TODO 31 long
+        #MENU
 
 
 
-        # --- Drawing code should go here
+        # Gameplay
     screen.fill(WHITE)   # First, clear the screen to white.
     if game_state:
 
